@@ -1,0 +1,13 @@
+# Write your MySQL query statement below
+with manager as(
+  select reports_to as id, round(avg(age),0) as average_age, count(reports_to) as reports_count
+  from Employees
+  group by reports_to
+  having reports_to is not null
+)
+
+select employee_id, name, reports_count, average_age
+from Employees
+inner join manager
+on employee_id=id
+order by employee_id

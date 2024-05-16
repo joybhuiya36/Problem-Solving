@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+select prd.product_name, sl.year, sl.price
+from Sales as sl
+inner join Product as prd
+on prd.product_id=sl.product_id

@@ -1,0 +1,16 @@
+# Write your MySQL query statement below
+select class
+from Courses
+group by class
+having count(student)>=5
+
+
+# Write your MySQL query statement below
+with tbl as (
+  select count(student) as total, class
+	from Courses
+	group by class
+)
+select class
+from tbl
+where total>=5

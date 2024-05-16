@@ -1,0 +1,8 @@
+# Write your MySQL query statement below
+
+select case when mod(id,2)=1 and cnt!=id then id+1 when mod(id,2)=1 and cnt=id then id else id-1 end as id, student
+from Seat, (
+  select count(*) as cnt
+  from Seat
+) as st
+order by id

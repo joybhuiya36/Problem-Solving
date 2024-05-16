@@ -1,0 +1,11 @@
+# Write your MySQL query statement below
+
+select name
+from Employee as e
+inner join (
+  select managerId as id
+  from Employee
+  group by managerId
+  having count(*)>4
+) as e2
+on e.id=e2.id

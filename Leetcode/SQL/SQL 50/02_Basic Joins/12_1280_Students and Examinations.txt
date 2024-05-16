@@ -1,0 +1,34 @@
+# Write your MySQL query statement below
+with t1 as (
+  select *
+  from Students
+  cross join Subjects
+),
+t2 as (
+  select *, count(subject_name) as cnt
+  from Examinations
+  group by student_id, subject_name
+)
+select t1.student_id, t1.student_name, t1.subject_name, (case when cnt is not null then cnt else 0 end) as attended_exams
+from t1
+left join t2
+on t1.student_id=t2.student_id and t1.subject_name=t2.subject_name
+order by t1.student_id, t1.subject_name
+
+
+#or
+# Write your MySQL query statement below
+
+select t1.student_id, t1.student_name, t1.subject_name, (case when cnt is not null then cnt else 0 end) as attended_exams
+from (
+  select *
+  from Students
+  cross join Subjects
+) as t1
+left join (
+  select *, count(subject_name) as cnt
+  from Examinations
+  group by student_id, subject_name
+) as t2
+on t1.student_id=t2.student_id and t1.subject_name=t2.subject_name
+order by t1.student_id, t1.subject_name

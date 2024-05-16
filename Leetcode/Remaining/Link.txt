@@ -1,0 +1,2 @@
+https://leetcode.com/study-plan/graph/
+https://leetcode.com/study-plan/binary-search/

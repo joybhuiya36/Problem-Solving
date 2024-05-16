@@ -1,0 +1,11 @@
+# Write your MySQL query statement below
+
+with tbl as (
+	select product_id, max(case when change_date<="2019-08-16" then change_date else null end) as c_date
+	from Products
+	group by product_id
+)
+select t.product_id, case when t.c_date is null then 10 else p.new_price end as price
+from tbl t
+left join Products p
+on t.product_id=p.product_id and c_date=p.change_date

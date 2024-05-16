@@ -1,0 +1,17 @@
+# Write your MySQL query statement below
+with tbl as(
+  select num
+  from MyNumbers
+  group by num
+  having count(num)<2
+)
+select max(num) as num
+from tbl
+
+
+#or
+# Write your MySQL query statement below
+SELECT MAX(s1.num) AS num
+FROM (SELECT num FROM MyNumbers
+GROUP BY 1
+HAVING Count(num)=1) AS s1;

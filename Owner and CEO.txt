@@ -1,0 +1,10 @@
+Company		CEO		Owner
+
+Apple		Tim Cook	Steve Jobs
+Amazon		Andy Jassy	Jeff Bezos
+Alibaba		Daniel Zhang	Jack Ma Yun
+Google		Sundar Pichai	Larry Page, Sergey Brin
+Microsoft	Staya Nadella	Bill Gates
+Meta			Mark Zuckerberg
+Tesla			Elon Musk
+Youtube		Neal Mohan	Jawed Karim
